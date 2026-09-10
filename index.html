@@ -4486,67 +4486,67 @@
   const TANGENT_INEQUALITIES = [
     {
       id: "te_exp_x1", formula: String.raw`e^x \ge x+1`,
-      condition: String.raw`当且仅当 $x=0$ 时取等`, usage: "指数函数在 x=0 处的切线 y=x+1 是其下界，用于含 e^x 的最值与恒成立放缩。",
+      condition: String.raw`当且仅当 $x=0$ 时取等`, usage: String.raw`指数函数在 $x=0$ 处的切线 $y=x+1$ 是其下界，用于含 $e^x$ 的最值与恒成立放缩。`,
       xRange: [-3, 3], yClip: 12, yRange: [-2, 9], point: { x: 0, y: 1, label: "切点 (0,1)" },
       curves: [{ name: "目标函数", fn: (x) => Math.exp(x) }, { name: "对照函数", fn: (x) => x + 1 }]
     },
     {
       id: "te_exp_ex", formula: String.raw`e^x \ge ex`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "e^x 在 x=1 处的切线 y=ex 是其下界，可得 $\dfrac{e^x}{x}\ge e$（x>0）。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`$e^x$ 在 $x=1$ 处的切线 $y=ex$ 是其下界，可得 $\dfrac{e^x}{x}\ge e$（$x>0$）。`,
       xRange: [-2, 3], yClip: 14, yRange: [-2, 10], point: { x: 1, y: Math.E, label: "切点 (1,e)" },
       curves: [{ name: "目标函数", fn: (x) => Math.exp(x) }, { name: "对照函数", fn: (x) => Math.E * x }]
     },
     {
       id: "te_exp_1over", formula: String.raw`e^x \le \dfrac{1}{1-x}\ (x<1)`,
-      condition: String.raw`当且仅当 $x=0$ 时取等`, usage: "用几何级数 $\dfrac{1}{1-x}=1+x+x^2+\cdots$ 的上界估计 e^x，用于 x<1 的放缩。",
+      condition: String.raw`当且仅当 $x=0$ 时取等`, usage: String.raw`用几何级数 $\dfrac{1}{1-x}=1+x+x^2+\cdots$ 的上界估计 $e^x$，用于 $x<1$ 的放缩。`,
       xRange: [-2, 0.9], yClip: 10, yRange: [0, 8], point: { x: 0, y: 1, label: "交点 (0,1)" },
       curves: [{ name: "目标函数", fn: (x) => Math.exp(x) }, { name: "对照函数", fn: (x) => 1 / (1 - x) }]
     },
     {
       id: "te_lnx_x1", formula: String.raw`\ln x \le x-1`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "对数函数在 x=1 处的切线 y=x−1 是其上界，是最常用的对数切线放缩。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`对数函数在 $x=1$ 处的切线 $y=x-1$ 是其上界，是最常用的对数切线放缩。`,
       xRange: [0.1, 5], yClip: 5, yRange: [-4, 4], point: { x: 1, y: 0, label: "切点 (1,0)" },
       curves: [{ name: "目标函数", fn: (x) => Math.log(x) }, { name: "对照函数", fn: (x) => x - 1 }]
     },
     {
       id: "te_lnx_1overx", formula: String.raw`\ln x \ge 1-\dfrac{1}{x}`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "对数在 x=1 处的另一条下界曲线 y=1−1/x，用于放缩 $\ln x$ 的下界。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`对数在 $x=1$ 处的另一条下界曲线 $y=1-\dfrac{1}{x}$，用于放缩 $\ln x$ 的下界。`,
       xRange: [0.3, 5], yClip: 6, yRange: [-4, 2], point: { x: 1, y: 0, label: "切点 (1,0)" },
       curves: [{ name: "目标函数", fn: (x) => Math.log(x) }, { name: "对照函数", fn: (x) => 1 - 1 / x }]
     },
     {
       id: "te_lnx_pade1", formula: String.raw`\ln x \le \dfrac{2(x-1)}{x+1}\ (0<x\le 1)`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "帕德型下界估计，比线性放缩更精细，用于 $(0,1]$ 上的对数放缩。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`帕德型下界估计，比线性放缩更精细，用于 $(0,1]$ 上的对数放缩。`,
       xRange: [0.05, 1.1], yClip: 6, yRange: [-6, 1], point: { x: 1, y: 0, label: "切点 (1,0)" },
       curves: [{ name: "目标函数", fn: (x) => Math.log(x) }, { name: "对照函数", fn: (x) => 2 * (x - 1) / (x + 1) }]
     },
     {
       id: "te_lnx_pade2", formula: String.raw`\ln x \ge \dfrac{2(x-1)}{x+1}\ (x\ge 1)`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "帕德型上界估计，用于 $[1,+\infty)$ 上对数与有理式的比较。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`帕德型上界估计，用于 $[1,+\infty)$ 上对数与有理式的比较。`,
       xRange: [0.9, 6], yClip: 4, yRange: [-2, 2], point: { x: 1, y: 0, label: "切点 (1,0)" },
       curves: [{ name: "目标函数", fn: (x) => Math.log(x) }, { name: "对照函数", fn: (x) => 2 * (x - 1) / (x + 1) }]
     },
     {
       id: "te_sin_x_tan", formula: String.raw`\sin x < x < \tan x\ \left(0<x<\dfrac{\pi}{2}\right)`,
-      condition: String.raw`开区间内严格成立，无取等点（三者在 $x\to0^+$ 时汇于 $0$）`, usage: "三角函数的经典夹逼式，常用于证明 $\lim_{x\to0}\dfrac{\sin x}{x}=1$。",
+      condition: String.raw`开区间内严格成立，无取等点（三者在 $x\to0^+$ 时汇于 $0$）`, usage: String.raw`三角函数的经典夹逼式，常用于证明 $\lim_{x\to0}\dfrac{\sin x}{x}=1$。`,
       xRange: [0.02, 1.45], yClip: 8, yRange: [-0.3, 8], point: null,
       curves: [{ name: "目标函数", fn: (x) => x }, { name: "下界", fn: (x) => Math.sin(x) }, { name: "上界", fn: (x) => Math.tan(x) }]
     },
     {
       id: "te_x1_lnx", formula: String.raw`x-1 \ge \ln x`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "与 $\ln x\le x-1$ 等价，强调「直线在上、对数在下」。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`与 $\ln x\le x-1$ 等价，强调「直线在上、对数在下」。`,
       xRange: [0.1, 5], yClip: 5, yRange: [-4, 4], point: { x: 1, y: 0, label: "切点 (1,0)" },
       curves: [{ name: "目标函数", fn: (x) => x - 1 }, { name: "对照函数", fn: (x) => Math.log(x) }]
     },
     {
       id: "te_xoverE_lnx", formula: String.raw`\dfrac{x}{e} \ge \ln x`,
-      condition: String.raw`当且仅当 $x=e$ 时取等`, usage: "等价于 $\dfrac{\ln x}{x}\le\dfrac{1}{e}$，用于比较 $\ln x$ 与 $\dfrac{x}{e}$。",
+      condition: String.raw`当且仅当 $x=e$ 时取等`, usage: String.raw`等价于 $\dfrac{\ln x}{x}\le\dfrac{1}{e}$，用于比较 $\ln x$ 与 $\dfrac{x}{e}$。`,
       xRange: [0.1, 6], yClip: 4, yRange: [-3, 3], point: { x: Math.E, y: 1, label: "切点 (e,1)" },
       curves: [{ name: "目标函数", fn: (x) => x / Math.E }, { name: "对照函数", fn: (x) => Math.log(x) }]
     },
     {
       id: "te_exp_ex2", formula: String.raw`e^x \ge ex`,
-      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: "即 $e^{x-1}\ge x$，常用于把指数项与线性项比较。",
+      condition: String.raw`当且仅当 $x=1$ 时取等`, usage: String.raw`即 $e^{x-1}\ge x$，常用于把指数项与线性项比较。`,
       xRange: [-2, 3], yClip: 14, yRange: [-2, 10], point: { x: 1, y: Math.E, label: "切点 (1,e)" },
       curves: [{ name: "目标函数", fn: (x) => Math.exp(x) }, { name: "对照函数", fn: (x) => Math.E * x }]
     }
